@@ -1,0 +1,75 @@
+
+@Bem
+https://desenvolvimentoparaweb.com/css/bem/
+
+@Namespaces
+https://www.youtube.com/watch?v=24inN5LDO3M
+
+-----------------------------------------------
+
+Componente: c- : Um componente de tela
+  .c-min-menu {}
+  .c-min-menu__item {}
+  .c-min-menu__link {}
+
+Utilitários: u- : Utilidade única
+  - Se pode utilizar !important
+
+  .u-bold {
+    font-weight: bold;
+  }
+
+  .u-total-centered-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .u-total-centered-grid {
+    display: grid;
+    place-items: center;
+  }
+
+Scope (Escopo): s- : Define um contexto de modificações em um determinado conteúdo
+  - As vezes é necessário utilizar o !important, mas primeiro tente por especificação
+
+    .s-main-menu .menu-item {
+      padding: 10px;
+  }
+
+Estado/Condição: is/has: Através de uma condição, algo temporário
+
+  .is-open {
+    //está aberto
+  }
+
+  .has-submenus {
+    //está aberto
+  }
+
+  .c-main-menu: {}
+  .c-main-menu.has-submenus: {}
+  .c-main-menu.is-open: {}
+  .c-main-menu.is-open.has-submenus: {}
+
+JavaScript: js- : Classe para ser usada apenas como hooks no JS
+  - Nunca por estilo em no namespace js.
+
+  .js-main-menu: {}
+
+QA : qa- : Utilizado para as pessoas que criam testes automatizados
+
+  .qa-main-nav {}
+    - Nunca por estilo em no namespace js.
+
+  -----------------------------------------------
+
+  Depurar CSS
+
+    : Dar um outline em todos os utilitários
+      [class^="u-"], [class*="u-"] {
+        outline: 5px solid rebeccapurple
+      }
+
+
+
